@@ -24,7 +24,9 @@ for(var i=0; i<addToCartButtons.length; i++){
     var addbutton = addToCartButtons[i]
     addbutton.addEventListener('click', addToCartClicked)
 }
-    
+
+document.getElementsByClassName('btn-purchase')[0].addEventListener('click',purchaseClicked)
+
 }
 
 function addToCartClicked(event){
@@ -38,6 +40,14 @@ addItemToCart(title,price,imageSrc)
 updateCartTotal()
 }
 
+function purchaseClicked(){
+    alert('Thnak you for your purchase')
+    var cartItems = document.getElementsByClassName('cart-items')[0]
+    while(cartItems.hasChildNodes()){
+        cartItems.removeChild(cartItems.firstChild)
+    }
+    updateCartTotal()
+}
 
 function removeCartItem(event){
     var buttonClicked =  event.target
